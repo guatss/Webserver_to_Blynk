@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<title>Form - Login</title>
+</head>
+<body>
+	<div class="container">
+		<form class="form-login">
+			<h2>Đăng Nhập</h2>
+			<div class="form-text">
+				<label>SSID</label>
+				<input type="text" id="username" placeholder="*Bắt Buộc">
+			</div>
+
+			<div class="form-text">
+				<label>PASSWORD</label>
+				<input type="password" id="password" placeholder="*Bắt Buộc">
+			</div>
+			<div class="form-text">
+				<label>AUTOKEN</label>
+				<input type="password" id="autoken" placeholder="*Không Bắt Buộc">
+			</div>
+		<button class="button_login" onclick="btnlogin()">Đăng Nhập</button>
+	
+		</form>		
+	</div>
+	<script>
+		const formLogin = document.querySelectorAll('.form-text input')
+		const formLabel = document.querySelectorAll('.form-text label')
+		for(let i=0; i<3;i++){
+			formLogin[i].addEventListener('mouseover',function(){
+				formLabel[i].classList.add("focus")
+			})
+			formLogin[i].addEventListener('mouseout',function(){
+				if(formLogin[i].value == ""){
+				formLabel[i].classList.remove("focus")
+				}
+			})
+		}
+	</script>
+
+	<script>
+		var crrusername = 'admin'
+		var crrpassword = 'admin'
+		var inputUsername = document.getElementById('username')
+		var inputPassword = document.getElementById('password')
+
+		function btnlogin(){
+			if( inputUsername.value =='' || inputPassword.value == '' ){
+				window.alert("Bạn hãy nhâp đầy đủ thông tin !")
+			}
+			else{
+				if(inputUsername.value == crrusername && inputPassword.value == crrpassword){
+					window.alert('Đăng nhâp thành công !')
+
+				}
+				else{
+					alert('Đăng nhập thất bại')
+				}
+			}
+		}
+		function back() {
+			history.go (-1);
+		}
+		
+	</script>
+</body>
+</html>
